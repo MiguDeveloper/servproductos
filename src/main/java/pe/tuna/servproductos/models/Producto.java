@@ -18,6 +18,11 @@ public class Producto implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createAt;
 
+    // Con transient indicamos que este atributo no es persistente
+    // no esta relacionado con la tabla en la base de datos
+    @Transient
+    private int port;
+
     private static final long serialVersionUID = 1655248764511917787L;
 
     public Long getId() {
@@ -50,5 +55,13 @@ public class Producto implements Serializable {
 
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 }
