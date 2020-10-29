@@ -19,7 +19,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api")
 public class ProductoController {
 
     @Autowired
@@ -34,7 +33,7 @@ public class ProductoController {
     @Value("${server.port}")
     private int port;
 
-    @GetMapping("/productos")
+    @GetMapping("/")
     public ResponseEntity<?> findAll() {
         Map<String, Object> response = new HashMap<>();
         List<Producto> productos;
@@ -58,8 +57,8 @@ public class ProductoController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }
 
-    @GetMapping("/producto/{id}")
-    public ResponseEntity<?> findById(@PathVariable(name = "id") Long id ){
+    @GetMapping("/{id}")
+    public ResponseEntity<?> findById(@PathVariable(name = "id") Long id ) {
         Producto producto= null;
         Map<String, Object> response = new HashMap<>();
 
